@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="padding_margin">2.5dp</dimen>
+    <dimen name="button_take_height">55dp</dimen>
+    <dimen name="button_take_width">50dp</dimen>
+    <dimen name="thumb_height">55dp</dimen>
+    <dimen name="thumb_width">50dp</dimen>
+
+</resources>
