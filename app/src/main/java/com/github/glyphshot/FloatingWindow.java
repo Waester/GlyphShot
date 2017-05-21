@@ -128,7 +128,7 @@ public class FloatingWindow extends Service {
     private Bitmap takeScreenshot() {
         InputStream inputStream = null;
         try {
-            inputStream = Runtime.getRuntime().exec(new String[]{"su", "-c", "screencap -p"}).getInputStream();
+            inputStream = Runtime.getRuntime().exec("su -c screencap -p").getInputStream();
         } catch (IOException ex) {
             System.out.println("Error: IOException");
             return null;
