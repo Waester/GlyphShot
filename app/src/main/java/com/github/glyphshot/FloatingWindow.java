@@ -33,6 +33,7 @@ public class FloatingWindow extends Service {
     private int nThumbnails = 0;
     private SharedPreferences prefs;
     private SharedPreferences.Editor prefsEdit;
+    private boolean mRunning;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -110,11 +111,20 @@ public class FloatingWindow extends Service {
     }
 
     @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+        if (mRunning) {
+            this.stopSelf();
+        } else {
+            mRunning = true;
+        }
+        return START_NOT_STICKY;
+    }
+
+    @Override
     public void onDestroy() {
         removeAllThumbs();
         mManager.removeView(mView);
-        prefsEdit.putBoolean("enabled", false);
-        prefsEdit.apply();
     }
 
     private int getHeight() {
